@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#124b9a">
+  <meta name="description" content="ANGAN EDUCARE FOUNDATION Student Attendance">
+  <title>Angan Attendance</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/angan-logo.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <img class="brand-logo" src="assets/angan-logo.png" alt="Angan Educare Foundation logo">
+      <div class="brand-copy">
+        <div class="brand-name">ANGAN EDUCARE</div>
+        <div class="brand-sub">FOUNDATION</div>
+        <div class="brand-tag">Education • Skill • Opportunity • Empowerment</div>
+      </div>
+    </header>
+
+    <main>
+      <section id="welcomeScreen" class="screen active welcome-screen">
+        <div class="welcome-logo-wrap">
+          <img class="welcome-logo" src="assets/angan-logo.png" alt="Angan Educare Foundation का असली लोगो">
+        </div>
+        <div class="welcome-cap" aria-hidden="true">♧  ♙  ♧</div>
+        <p class="eyebrow">ANGAN EDUCARE FOUNDATION PRESENTS</p>
+        <h1 class="welcome-title">Student<br><span>Attendance</span></h1>
+        <p class="welcome-tagline">Apne Sapno Ko Pankh De</p>
+        <div class="welcome-art" aria-hidden="true">
+          <div class="art-book book-one"></div>
+          <div class="art-book book-two"></div>
+          <div class="art-book book-three"></div>
+          <div class="art-cap">🎓</div>
+          <div class="art-pencil">✎</div>
+        </div>
+        <p class="muted welcome-description">अपनी उपस्थिति आसानी से दर्ज करें।</p>
+        <div class="info-strip"><span class="info-icon">✓</span><span>आसान • सुरक्षित • डिजिटल</span></div>
+        <button id="startBtn" class="primary-btn">Start Attendance <span>→</span></button>
+        <p class="small-note">कृपया अपनी सही Student ID तैयार रखें।</p>
+      </section>
+
+      <section id="idScreen" class="screen">
+        <button class="back-btn" data-back="welcomeScreen">← वापस</button>
+        <p class="eyebrow">STEP 1 OF 2</p>
+        <h2>Student ID दर्ज करें</h2>
+        <p class="muted">अपनी संस्था द्वारा दी गई Student ID लिखें।</p>
+        <form id="studentForm">
+          <label for="studentId">Student ID</label>
+          <input id="studentId" name="studentId" autocomplete="off" placeholder="जैसे: ANGAN1001" required maxlength="80">
+          <p id="idError" class="error-text" role="alert"></p>
+          <button class="primary-btn" type="submit">आगे बढ़ें <span>→</span></button>
+        </form>
+        <div class="privacy-note"><span>🔒</span><span>आपकी जानकारी का उपयोग उपस्थिति दर्ज करने के लिए किया जाएगा।</span></div>
+      </section>
+
+      <section id="cameraScreen" class="screen">
+        <button class="back-btn" data-back="idScreen">← वापस</button>
+        <p class="eyebrow">STEP 2 OF 2</p>
+        <h2>अपनी Selfie लें</h2>
+        <div class="student-pill">Student ID: <strong id="shownStudentId">—</strong></div>
+        <div class="datetime-card">
+          <div><span class="meta-label">आज की तारीख</span><strong id="todayDate">—</strong></div>
+          <div><span class="meta-label">वर्तमान समय</span><strong id="currentTime">—</strong></div>
+        </div>
+        <div class="camera-wrap">
+          <video id="cameraVideo" autoplay playsinline muted></video>
+          <img id="photoPreview" alt="आपकी ली गई Selfie" hidden>
+          <div id="cameraPlaceholder" class="camera-placeholder">
+            <div class="camera-symbol">◎</div>
+            <strong>कैमरा शुरू करने के लिए दबाएँ</strong>
+            <span>बेहतर रोशनी में अपना चेहरा साफ़ रखें।</span>
+          </div>
+        </div>
+        <canvas id="photoCanvas" hidden></canvas>
+        <p id="cameraMessage" class="muted small-note">कैमरा अनुमति माँग सकता है।</p>
+        <div class="button-stack">
+          <button id="startCameraBtn" class="secondary-btn">कैमरा शुरू करें</button>
+          <button id="captureBtn" class="primary-btn" disabled>Selfie लें</button>
+          <button id="retakeBtn" class="secondary-btn" hidden>दोबारा Selfie लें</button>
+          <button id="submitBtn" class="primary-btn" disabled>Attendance Submit करें</button>
+        </div>
+        <p class="fine-print">फोटो लेने से पहले सुनिश्चित करें कि यह आप ही हैं। कैमरा उपयोग के लिए वेबसाइट HTTPS पर खुलनी चाहिए (localhost पर भी परीक्षण हो सकता है)।</p>
+      </section>
+
+      <section id="successScreen" class="screen">
+        <div class="success-icon">✓</div>
+        <p class="eyebrow">ATTENDANCE STATUS</p>
+        <h1>उपस्थिति दर्ज हो गई!</h1>
+        <p class="muted">आपकी उपस्थिति सफलतापूर्वक सबमिट हो गई है।</p>
+        <div class="receipt">
+          <div><span>Student ID</span><strong id="successId">—</strong></div>
+          <div><span>तारीख</span><strong id="successDate">—</strong></div>
+          <div><span>समय</span><strong id="successTime">—</strong></div>
+          <div><span>स्थिति</span><strong class="status-ok">Present</strong></div>
+          <div><span>Submission ID</span><strong id="submissionId">—</strong></div>
+        </div>
+        <button id="newAttendanceBtn" class="primary-btn">समाप्त करें</button>
+        <p class="small-note">यदि सबमिशन में समस्या आए, तो अपने शिक्षक/प्रशासक से संपर्क करें।</p>
+      </section>
+    </main>
+    <footer>© <span id="year"></span> ANGAN EDUCARE FOUNDATION</footer>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
