@@ -1,0 +1,23 @@
+
+{
+  "id": "/angan-attendance/",
+  "name": "Angan Attendance",
+  "short_name": "Angan Attendance",
+  "description": "ANGAN EDUCARE FOUNDATION Student Attendance",
+  "start_url": "/angan-attendance/",
+  "scope": "/angan-attendance/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#ffffff",
+  "theme_color": "#124b9a",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["education"],
+  "icons": [
+    {
+      "src": "/angan-attendance/assets/angan-logo.png",
+      "sizes": "any",
+      "type": "image/png"
+    }
+  ]
+}
