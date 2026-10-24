@@ -14,10 +14,10 @@
   "dir": "ltr",
   "categories": ["education"],
   "icons": [
-    {
-      "src": "/angan-attendance/assets/angan-logo.png",
-      "sizes": "any",
-      "type": "image/png"
-    }
-  ]
-}
+  {
+    "src": "/angan-attendance/assets/angan-icon-512.png",
+    "sizes": "512x512",
+    "type": "image/png",
+    "purpose": "any"
+  }
+]
