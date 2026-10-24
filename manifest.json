@@ -1,4 +1,3 @@
-
 {
   "id": "/angan-attendance/",
   "name": "Angan Attendance",
@@ -14,10 +13,11 @@
   "dir": "ltr",
   "categories": ["education"],
   "icons": [
-  {
-    "src": "/angan-attendance/assets/angan-icon-512.png",
-    "sizes": "512x512",
-    "type": "image/png",
-    "purpose": "any"
-  }
-]
+    {
+      "src": "/angan-attendance/assets/angan-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
